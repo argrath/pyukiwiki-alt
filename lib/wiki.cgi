@@ -1854,7 +1854,7 @@ sub text_to_html {
 			my $delm = "\\$1";
 			my $tmp = ($1 eq ',') ? "$2$1" : "$2";
 			my @value = map {/^"(.*)"$/ ? scalar($_ = $2, s/""/"/g, $_) : $_}
-				($tmp =~ /("[^"]*(?:""[^"]*)*"|[^$delm]*)$delm/g);
+				($tmp =~ /("[^"]*(?:""[^"]*)*"|[^$delm]*)$delm/g); # "
 			my @align = map {(s/^\s+//) ? ((s/\s+$//) ? ' align="center"' : ' align="right"') : ''} @value;
 			my @colspan = map {$_ eq '==' ? 0 : 1} @value;
 			my $pukicolspan=1;
