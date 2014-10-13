@@ -10,7 +10,7 @@ my %action = (
 
 sub plugin_backup_list {
 	require 'HTML/Template.pm';
-	my (@list) = PyukiWiki::Backup::get_all($::form{mypage});
+	my (@list) = PyukiWikiAlt::Backup::get_all($::form{mypage});
 	my $ret = '';
 	my $c = 1;
 	my $t = HTML::Template->new(filename => 'template/backup.ja.tmpl.html');
@@ -29,7 +29,7 @@ sub plugin_backup_list {
 
 sub plugin_backup_view {
 	require 'HTML/Template.pm';
-	my (@list) = PyukiWiki::Backup::get_all($::form{mypage});
+	my (@list) = PyukiWikiAlt::Backup::get_all($::form{mypage});
 	my $age = $::form{age};
 	my $text = $list[$age - 1]{content};
 	my $c = 1;
@@ -53,7 +53,7 @@ sub plugin_backup_source {
     require 'HTML/Template.pm';
     my $t = HTML::Template->new(filename => 'template/backup_source.ja.tmpl.html');
 
-    my (@list) = PyukiWiki::Backup::get_all($::form{mypage});
+    my (@list) = PyukiWikiAlt::Backup::get_all($::form{mypage});
     $t->param(source => &htmlspecialchars(${$list[$::form{age} - 1]}{content}));
 
     return ('msg' => $::form{mypage} . "\t" . 'のバックアップ', 'body' => $t->output);
@@ -61,10 +61,10 @@ sub plugin_backup_source {
 
 sub plugin_backup_diff {
     require 'HTML/Template.pm';
-    &load_module('PyukiWiki::Diff');
+    &load_module('PyukiWikiAlt::Diff');
     &load_module('Yuki::DiffText');
     my $t = HTML::Template->new(filename => 'template/backup_nowdiff.ja.tmpl.html');
-    my (@list) = PyukiWiki::Backup::get_all($::form{mypage});
+    my (@list) = PyukiWikiAlt::Backup::get_all($::form{mypage});
     my $idx = $::form{age} - 1;
     my @new = split(/\n/, ${$list[$idx]}{content});
     my @old;
@@ -75,21 +75,21 @@ sub plugin_backup_diff {
     }
 
     $t->param(body =>
-	PyukiWiki::Diff::construct(Yuki::DiffText::difftext(\@old, \@new)));
+	PyukiWikiAlt::Diff::construct(Yuki::DiffText::difftext(\@old, \@new)));
     return ('msg' => $::form{mypage} . "\t" . 'のバックアップ', 'body' => $t->output);
 }
 
 sub plugin_backup_nowdiff {
     require 'HTML/Template.pm';
-    &load_module('PyukiWiki::Diff');
+    &load_module('PyukiWikiAlt::Diff');
     &load_module('Yuki::DiffText');
     my $t = HTML::Template->new(filename => 'template/backup_nowdiff.ja.tmpl.html');
-    my (@list) = PyukiWiki::Backup::get_all($::form{mypage});
+    my (@list) = PyukiWikiAlt::Backup::get_all($::form{mypage});
     my @old = split(/\n/, ${$list[$::form{age} - 1]}{content});
     my @new = split(/\n/, $::database{$::form{mypage}});
 
     $t->param(body =>
-	PyukiWiki::Diff::construct(Yuki::DiffText::difftext(\@old, \@new)));
+	PyukiWikiAlt::Diff::construct(Yuki::DiffText::difftext(\@old, \@new)));
     return ('msg' => $::form{mypage} . "\t" . 'のバックアップ', 'body' => $t->output);
 
 }

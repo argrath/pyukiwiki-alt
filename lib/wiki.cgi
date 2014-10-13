@@ -1473,8 +1473,8 @@ sub do_write {
 	}
 
 	{
-		&load_module('PyukiWiki::Backup');
-		PyukiWiki::Backup::add(
+		&load_module('PyukiWikiAlt::Backup');
+		PyukiWikiAlt::Backup::add(
 		    $::form{mypage}, $::form{mymsg}, time());
 	}
 

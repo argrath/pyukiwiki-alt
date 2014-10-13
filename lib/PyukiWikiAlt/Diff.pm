@@ -1,4 +1,4 @@
-package PyukiWiki::Diff;
+package PyukiWikiAlt::Diff;
 
 use strict;
 use warnings;

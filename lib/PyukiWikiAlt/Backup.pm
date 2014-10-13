@@ -1,4 +1,4 @@
-package PyukiWiki::Backup;
+package PyukiWikiAlt::Backup;
 use strict;
 use warnings;
 

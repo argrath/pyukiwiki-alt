@@ -36,8 +36,8 @@ sub plugin_diff_action {
 
 	my $body = qq(<h3>$::resource{diff_plugin_msg}</h3>);
 
-	&load_module('PyukiWiki::Diff');
-	$t->param(body => PyukiWiki::Diff::construct($_));
+	&load_module('PyukiWikiAlt::Diff');
+	$t->param(body => PyukiWikiAlt::Diff::construct($_));
 	return ('msg' => "$title\t$::resource{diff_plugin_title}", 'body' => $t->output, 'ispage'=>1);
 }
 1;
