@@ -17,7 +17,7 @@ search.inc.pl - PyukiWiki プラグイン
 
 =head1 使用方法
 
- ?cmd=search[&word=string][&type=OR|AND]
+ ?cmd=search[&mymsg=string][&type=OR|AND]
 
 =over 4
 

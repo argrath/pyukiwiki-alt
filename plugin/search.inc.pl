@@ -32,7 +32,7 @@ sub plugin_search_action {
 	}
 
 	my $body = "";
-	my $word=&escape(&code_convert(\$::form{search}, $::defaultcode));
+	my $word=&escape(&code_convert(\$::form{mymsg}, $::defaultcode));
 	if ($word) {
 		@words = split(/\s+/, $word);
 		my $total = 0;
@@ -90,7 +90,7 @@ sub plugin_search_form {
 <div>
 <input type="hidden" name="cmd" value="search" />
 <input type="hidden" name="refer" value="$::form{refer}" />
-<input type="text" name="search" value="$word" size="20" />
+<input type="text" name="mymsg" value="$word" size="20" />
 <select name="type">
 <option value="AND">$::resource{searchand}</option>
 <option value="OR"@{[$::form{type} eq 'OR' ? " selected" : ""]}>$::resource{searchor}</option>
@@ -105,7 +105,7 @@ EOD
 <div>
 <input type="hidden" name="cmd" value="search" />
 <input type="hidden" name="refer" value="$::form{refer}" />
-<input type="text" name="search" value="$word" size="20" />
+<input type="text" name="mymsg" value="$word" size="20" />
 <input type="radio" name="type" value="AND" @{[ ($::form{type} ne 'OR' ? qq( checked="checked") : qq()) ]} />$::resource{searchand}
 <input type="radio" name="type" value="OR" @{[ ($::form{type} eq 'OR' ? qq( checked="checked") : qq()) ]}/>$::resource{searchor}
 <input type="submit" value="$::resource{searchbutton}" />
@@ -118,7 +118,7 @@ EOD
 <div>
 <input type="hidden" name="cmd" value="search" />
 <input type="hidden" name="refer" value="$::form{refer}" />
-<input type="text" name="search" value="$word" size="20" />
+<input type="text" name="mymsg" value="$word" size="20" />
 <input type="hidden" name="type" value="AND" />
 <input type="submit" value="$::resource{searchbutton}" />
 </div>
@@ -145,7 +145,7 @@ Search on the page.
 
 =head1 USAGE
 
- ?cmd=search[&word=string][&type=OR|AND]
+ ?cmd=search[&mymsg=string][&type=OR|AND]
 
 =over 4
 
