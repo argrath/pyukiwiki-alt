@@ -208,7 +208,7 @@ EOD
 
 	my $maxsize = $::max_filesize;
 	my $msg_maxsize = $::resource{attach_plugin_msg_maxsize};
-	my $kb = $maxsize / 1000 . "kb";
+	my $kb = int($maxsize / 1024) . "kb";
 
 	$msg_maxsize =~ s/%s/$kb/g;
 
