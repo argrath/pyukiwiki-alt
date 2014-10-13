@@ -948,6 +948,7 @@ sub makenavigator {
 		if($admineditable) {
 			&makenavigator_sub1("adminedit","mypage",$mypage);
 			&makenavigator_sub1("diff","mypage",$mypage);
+			&makenavigator_sub1("backup","mypage",$mypage);
 			&makenavigator_sub1("attach","mypage",$mypage) if($::file_uploads > 0);
 			&makenavigator_sub1("rename","refer",$mypage);
 		}
@@ -1468,6 +1469,12 @@ sub do_write {
 		&load_module("Yuki::DiffText");
 		$::diffbase{$::form{mypage}} = Yuki::DiffText::difftext(\@msg1, \@msg2);
 		&close_diff;
+	}
+
+	{
+		&load_module('PyukiWiki::Backup');
+		PyukiWiki::Backup::add(
+		    $::form{mypage}, $::form{mymsg}, time());
 	}
 
 	# 書き込み動作

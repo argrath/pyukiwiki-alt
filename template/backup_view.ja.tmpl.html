@@ -1,0 +1,15 @@
+<ul>
+<li><a href="<TMPL_VAR NAME="base">&amp;action=diff">差分</a>を表示
+<li><a href="<TMPL_VAR NAME="base">&amp;action=nowdiff">現在との差分</a>を表示
+<li><a href="<TMPL_VAR NAME="base">&amp;action=source">ソース</a>を表示
+<ul>
+<TMPL_LOOP NAME="list">
+<TMPL_IF NAME="selected">
+<li><em><TMPL_VAR NAME="num">(<TMPL_VAR NAME="time">)</em>
+<TMPL_ELSE>
+<li><a href="<TMPL_VAR NAME="base">"><TMPL_VAR NAME="num">(<TMPL_VAR NAME="time">)</a>
+</TMPL_IF>
+</TMPL_LOOP>
+</ul>
+</ul>
+<hr>

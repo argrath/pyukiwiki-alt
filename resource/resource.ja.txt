@@ -14,6 +14,7 @@ sitemapbutton=サイトマップ
 newpagebutton=新規
 editbutton=編集
 admineditbutton=凍結
+backupbutton=バックアップ
 difftitle=差分表示
 diffbutton=差分
 renamebutton=リネーム

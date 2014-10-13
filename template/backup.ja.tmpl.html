@@ -1,0 +1,8 @@
+<ul>
+<TMPL_LOOP NAME="list">
+<li><a href="<TMPL_VAR NAME="base">"><TMPL_VAR NAME="num">(<TMPL_VAR NAME="time">)</a> [
+<a href="<TMPL_VAR NAME="base">&amp;action=diff">差分</a> |
+<a href="<TMPL_VAR NAME="base">&amp;action=nowdiff">現在との差分</a> |
+<a href="<TMPL_VAR NAME="base">&amp;action=source">ソース</a>]</li>
+</TMPL_LOOP>
+</ul>

@@ -14,6 +14,7 @@ sitemapbutton=Site Map
 newpagebutton=New
 editbutton=Edit
 admineditbutton=Freeze
+backupbutton=Backup
 difftitle=Diff
 diffbutton=Diff
 renamebutton=Rename
