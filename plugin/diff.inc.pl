@@ -20,8 +20,6 @@
 # v0.1 Proto
 ######################################################################
 
-$diff::nostring=qq(<span style="font-size: 70%;">[CR]</span>);
-
 sub plugin_diff_action {
 	if (not &is_editable($::form{mypage})) {
 		&do_read;
@@ -30,25 +28,17 @@ sub plugin_diff_action {
 	}
 	&open_diff;
 	my $title = $::form{mypage};
-	$_ = &htmlspecialchars($::diffbase{$::form{mypage}});
+	$_ = $::diffbase{$::form{mypage}};
 	&close_diff;
+
+	&::load_module('HTML::Template');
+	my $t = HTML::Template->new(filename => 'template/diff.ja.tmpl.html');
+
 	my $body = qq(<h3>$::resource{diff_plugin_msg}</h3>);
-	$body .= qq($::resource{diff_plugin_notice});
-	$body .= qq(<pre class="diff">);
-	foreach (split(/\n/, $_)) {
-		if (/^\+(.*)/) {
-			$body .= qq(<b class="diff_added">$1@{[$1 eq '' ? "$diff::nostring" : '']}</b>\n);
-		} elsif (/^\-(.*)/) {
-			$body .= qq(<s class="diff_removed">$1@{[$1 eq '' ? "$diff::nostring" : '']}</s>\n);
-		} elsif (/^\=(.*)/) {
-			$body .= qq(<span class="diff_same">$1</span>\n);
-		} else {
-			$body .= qq|??? $_\n|;
-		}
-	}
-	$body .= qq(</pre>);
-	$body .= qq(<hr>);
-	return ('msg' => "$title\t$::resource{diff_plugin_title}", 'body' => $body, 'ispage'=>1);
+
+	&load_module('PyukiWiki::Diff');
+	$t->param(body => PyukiWiki::Diff::construct($_));
+	return ('msg' => "$title\t$::resource{diff_plugin_title}", 'body' => $t->output, 'ispage'=>1);
 }
 1;
 __END__
