@@ -1,0 +1,72 @@
+#$Id: punyurl.inc.pl.ja.pod,v 1.41 2006/09/29 09:11:31 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+punyurl.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ASCII文字以外のドメイン名を持つURLをpunycode形式に変換する
+
+=head1 説明
+
+多言語文字等のASCII文字以外のドメイン名を持つURLをpunycode形式に変換します。
+
+http://日本語.jp/ → http://xn--wgv71a119e.jp/
+
+=head1 警告
+
+perl 5.8.1 以降の環境でないと使用できません。
+
+現在のバージョンは日本語ドメインにしか対応していません。
+
+=head1 使用方法
+
+punyurl.inc.cgi にリネームして下さい。
+
+=head1 上書きする関数
+
+関数 make_link_url を上書きします。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/ExPlugin/punyurl
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/ExPlugin/punyurl/>
+
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/lib/punyurl.inc.pl>
+
+=back
+
+=head1 著者
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

@@ -1,0 +1,69 @@
+#$Id: server.inc.pl.ja.pod,v 1.50 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+server.inc.pl - PyukiWiki 管理者向けプラグイン
+
+=head1 概要
+
+ ?cmd=server
+ #server
+
+=head1 説明
+
+サーバーの情報を表示します。
+
+プラグインを使用するには、凍結パスワードが必要です。
+
+基本的な環境変数以外に、Perlのモジュール情報、ベンチマークをとることができます。
+
+Perlのモジュール情報を収集する時は、非常に時間がかかります。
+そのため、ご使用のサーバーによっては、Server Errorで応答がない場合があります。
+
+ベンチマークは４秒間程サーバーを高負荷にさせますので、乱用しないようにしてください。
+
+ブロック型プラグインとして使用する場合は、凍結パスワードは不要ですが、最小限の情報のみの表示となります。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Admin/server
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Admin/server/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/server.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

@@ -1,0 +1,95 @@
+#$Id: sitemap.inc.pl.ja.pod,v 1.47 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+sitemap.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ ?cmd=sitemap
+
+=head1 説明
+
+「明示的」訪問者をナビゲーションしやすくするプラグインです。
+
+=head1 USAGE
+
+=head2 MenuBar
+
+MenuBarでは以下のように記述する
+
+ ***項目名
+ [[WikiName]]
+ [[ページ]]
+
+(WikiNameだけでは動きません)
+
+=head2 各ページ
+
+MenuBarに登録されたページでは、以下のように記述する
+
+ -[[WikiName]] (WikiNameだけでは動きません)
+ -[[ページ]]~
+ --[[ページ]]~
+ ---[[ページ]]~
+ -[[?cmd=プラグイン&.....]]~
+
+ [[リンク>http://www.yahoo.co.jp/]] 等外部リンクははじきます。
+
+=back
+
+=head1 設定
+
+=head2 pyukiwiki.ini.cgi
+
+=over 4
+
+=item $::use_SiteMap
+
+1 にすると、サイトマップを使用します。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/sitemap
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/sitemap/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/sitemap.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

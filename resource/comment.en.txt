@@ -1,0 +1,10 @@
+#
+# PyukiWiki Resource file (English)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: comment.en.txt,v 1.50 2006/09/29 09:11:32 papu Exp $
+#
+
+# comment.inc.pl
+comment_plugin_yourname=Name:
+comment_plugin_commentbutton=Post Comment
+comment_plugin_err=Items mentioned are insufficient.

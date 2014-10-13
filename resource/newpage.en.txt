@@ -1,0 +1,11 @@
+#
+# PyukiWiki Resource file (English)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: newpage.en.txt,v 1.52 2006/09/29 09:11:32 papu Exp $
+#
+
+# newpage.inc.pl
+newpage_plugin_title=Create Page
+newpage_plugin_msg=New Page Name:
+newpage_plugin_under=Choice upper page:
+newpage_plugin_none=-- No specification --

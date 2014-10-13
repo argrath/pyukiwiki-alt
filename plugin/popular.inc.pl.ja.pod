@@ -1,0 +1,84 @@
+#$Id: popular.inc.pl.ja.pod,v 1.40 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+popular.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #popular(20,FrontPage|MenuBar,today)
+
+=head1 説明
+
+人気のあるページをリスト表示します
+
+やしがにもどき氏の作成されたpopular.inc.plをv0.1.6に対応し、改良したものです。
+
+=head1 使用方法
+
+ #popular(最大表示件数,表示しないページを正規表現で[,total|today|yesterday])
+
+=over 4
+
+=item 最大表示件数
+
+表示する件数を設定します。デフォルトは10です。
+
+=item 表示しないページを正規表現で
+
+表示しないページのリストを正規表現で設定します。
+
+=item total|today|yesterday
+
+全アクセスの表示、今日の表示、昨日の表示を設定します。デフォルトは全アクセスです。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/popular
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/popular/>
+
+=item PyukiWiki CVS
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/popular/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/popular.inc.pl>
+
+=item PyukiWiki/Plugin/popular
+
+0.1.5までの対応版です
+
+L<http://hpcgi1.nifty.com/it2f/wikinger/pyukiwiki.cgi?PyukiWiki%2f%a5%d7%a5%e9%a5%b0%a5%a4%a5%f3%2fpopular>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+
+
+=cut

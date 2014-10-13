@@ -1,0 +1,84 @@
+#$Id: img.inc.pl.ja.pod,v 1.31 2006/03/04 13:12:53 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+img.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #img(http://example.com/image.png)
+ #img(http://example.com/image.jpg,right)
+ #img(http://example.com/image.gif,l,AlternateText)
+ #img(,c)
+
+=head1 説明
+
+画像を表示します。
+
+=head1 使用方法
+
+ #img(image_url,[alt],[l|left],[r|right],c)
+
+=over 4
+
+=item image_url
+
+画像のあるURLを指定します。
+
+=item left または l
+
+左寄せします。
+
+=item right または r
+
+右寄せします。
+
+=item c
+
+テキストの回りこみを解除します。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/img
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/img/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/img.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

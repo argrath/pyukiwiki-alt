@@ -1,0 +1,89 @@
+#$Id: pagenavi.inc.pl.ja.pod,v 1.48 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+pagenavi.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #pagenavi(string, string, string...)
+
+=head1 説明
+
+上層へのページへナビゲートをしやすいようにリンクをする。
+
+=head1 使用方法
+
+=over 4
+
+=item 上層から現在のページへのリンク
+
+ PyukiWiki/用語集>Glossary/ぴゅきうぃきについて>PyukiWiki
+
+このように記載すると、以下のように変換されます。
+
+ [[PyukiWiki]]/[[用語集>PyukiWiki/Glossary]]/[[ぴゅきうぃきについて>PyukiWiki/Glossary/PyukiWiki]]
+
+=item パンくずリスト topicpath との相違
+
+明示的に指定することで、ページ名に対して、擬似的に他の名前を指定し、エイリアス的な使い方ができます。
+
+, で区切ることで、連続して指定することができます。
+
+=item その他
+
+その他は、通常のWiki文法で記述します。すべてのパラメータを結合してから、text_to_html関数でHTMLに変換されます。
+
+=使用例
+ #pagenavi(*,PyukiWiki/PyukiWikiダウンロード>Download,について)
+ #pagenavi(-参考：,TOP>FrontPage/用語集>Glossary/ぴゅきうぃき>PyukiWiki)
+
+=item 便利な使い方
+
+newpage.inc.pl や edit.inc.plのテンプレートとして、pyukiwiki.ini.cgi の$::new_refer 変数に設定すると便利です。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/pagenavi
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/pagenavi/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/pagenavi.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

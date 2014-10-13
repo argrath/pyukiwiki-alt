@@ -1,0 +1,9 @@
+#
+# PyukiWiki Resource file (English)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: vote.en.txt,v 1.50 2006/09/29 09:11:32 papu Exp $
+#
+
+# vote.inc.pl
+vote_plugin_choice=Selection
+vote_plugin_votes=Vote

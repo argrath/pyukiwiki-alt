@@ -1,0 +1,9 @@
+#
+# PyukiWiki Resource file (Japanese EUC)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: comment.ja.txt,v 1.50 2006/09/29 09:11:32 papu Exp $
+
+# comment.inc.pl
+comment_plugin_yourname=あなたの名前:
+comment_plugin_commentbutton=コメント追加
+comment_plugin_err=記載事項が不足しています

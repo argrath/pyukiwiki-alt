@@ -1,0 +1,10 @@
+#
+# PyukiWiki Resource file (English)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: diff.en.txt,v 1.51 2006/09/29 09:11:32 papu Exp $
+#
+
+# diff.inc.pl
+diff_plugin_title=Changes
+diff_plugin_msg=Difference
+diff_plugin_notice=<ul><li>Leatest add line display like <b class="diff_added">this</b>.</li><li>Leatest delete line display like <s class="diff_removed">Tthis</s>.</li></ul><hr />

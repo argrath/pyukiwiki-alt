@@ -1,0 +1,83 @@
+#$Id: navi.inc.pl.ja.pod,v 1.18 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+navi.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #navi([prefix] [,prefix_title] [,reverse])
+
+=head1 説明
+
+DocBook風ナビゲーションバーを表示します。
+
+目次となるページに下階層のページが存在する時、それら全てのページ（の先頭と末尾）に記述する事で Prev, Home, Next というリンクを表示します。これによって下階層のページを順に参照するのに便利になります。
+
+=head1 使用方法
+
+=over 4
+
+=item prefix
+
+目次ページに順番に見て回るページの上階層にあたるページを指定します。
+
+例えば hoge, hoge/1, hoge/2, hoge/3 というページが存在する場合、hoge/2に#navi(hoge)を記述するとhogeに移動するHomeというリンク、hoge/1に移動するPrevというリンク、hoge/3に移動するNextというリンクを表示します。
+
+ページで最初に呼び出した場合はヘッダイメージのリンクを出力します。ページで２度目以降に呼び出された場合はフッタイメージのリンクを出力します。現在のページが目次ページである場合は対象となるページの一覧を表示します。
+
+省略した場合は、現在表示しているページの上位ページを設定します。
+
+=item prefix_title
+
+プリフィックスのタイトルを指定します。
+
+=item reverse
+
+ページを逆順にソートします。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/navi
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/navi/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/navi.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

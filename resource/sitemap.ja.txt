@@ -1,0 +1,8 @@
+#
+# PyukiWiki Resource file (Japanese EUC)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: sitemap.ja.txt,v 1.50 2006/09/29 09:11:32 papu Exp $
+#
+
+# sitemap.inc.pl
+sitemap_plugin_title=サイトマップ

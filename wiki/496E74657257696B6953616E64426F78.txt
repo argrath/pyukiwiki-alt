@@ -1,0 +1,28 @@
+*[[InterWiki>PyukiWiki:PyukiWiki/Glossary/InterWiki]]用の練習ページです。
+-$Id: 496E74657257696B6953616E64426F78.txt,v 1.48 2006/09/29 09:11:32 papu Exp $ // # debug
+
+|SEO SPAMボットの攻撃対象になるため、デフォルトでこのページは凍結されています。|
+
+**他のWikiのページに飛んでみよう。
+-[[WikiWikiWeb:FrontPage]]
+-[[WalWiki:WalWiki]]
+-[[Tiki:WelcomeVisitors]] 
+-[[YukiWiki:FrontPage]] 
+-[[RWiki:top]] 
+-[[PukiWiki:FrontPage]] 
+-[[pukiwiki.dev:FrontPage]]
+
+**PyukiWikiのページに飛んでみよう。
+-[[pyukiwiki:FrontPage]]
+-[[pyukiwiki:PyukiWiki/Plugin]]
+-[[pyukiwiki:PyukiWiki/活用事例]]
+
+**検索だって出来る。
+:GoogleでPyukiWikiを検索|
+[[Google:PyukiWiki]]
+:YahooでPyukiWikiを検索|
+[[Yahoo:PyukiWiki]]
+**検索フォームも出せる。
+#lookup(Google,検索,PyukiWiki)
+#lookup(Yahoo,検索,PyukiWiki)
+

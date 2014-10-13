@@ -1,0 +1,50 @@
+$Id: Search.pm.ja.pod,v 1.46 2006/09/29 09:11:32 papu Exp $
+
+__END__
+
+=head1 NAME
+
+Nana::Search - 日本語あいまい検索モジュール
+
+=head1 概要
+
+ use Nana::Search qw(Search);
+ Search(text, search_words);
+
+charactor set is EUC only
+
+=head1 サンプル
+
+ "FrontPage" は、以下の検索ワードでヒットします。
+  FRoNTpAGe , ＦＲＯＮＴｐａｇｅ(全角文字)
+ "うぃき" は以下の検索ワードでヒットします。
+ ういき ウイキ ウィキ うゐき etc...
+ "あたしネカマなのなの。だから、告白しないでね" は以下の検索ワードでヒットします。
+ ナノダカラ あたしねかま ダカラ告白
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=head1 LICENSE
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
+
+1;

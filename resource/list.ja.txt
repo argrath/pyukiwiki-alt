@@ -1,0 +1,9 @@
+#
+# PyukiWiki Resource file (Japanese EUC)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: list.ja.txt,v 1.50 2006/09/29 09:11:32 papu Exp $
+#
+
+# list.inc.pl
+list_plugin_title=ページの一覧
+list_plugin_otherchara=日本語

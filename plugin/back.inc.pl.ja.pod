@@ -1,0 +1,104 @@
+#$Id: back.inc.pl.ja.pod,v 1.12 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+back.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #back( [[表示文字列] [,[left| center| right] [,[0| 1] [,[戻り先] ]]]] ) 
+
+=head1 説明
+
+指定した位置に戻り先へのリンクを設置します。
+
+=head1 使用方法
+
+=over 4
+
+=item 表示文字列
+
+表示文字列は省略すると「戻る」になります。
+
+=item left, center, right
+
+left, center, rightで表示位置を指定します。省略時はcenterになります。
+
+ left − リンクを左寄せで表示します。
+ center − リンクを中央寄せで表示します。
+ right − リンクを右寄せで表示します。
+
+=item 0, 1
+
+0、1で水平線の有無を指定します。省略すると1になります。
+
+ 0 − 水平線を表示しません。
+ 1 − 水平線を表示します。
+
+=item 戻り先
+
+戻り先はリンクを選択時の移動先となるURL、ページ名のいずれかで指定します。$back::allowpagelinkが1の場合のみページ名を指定可能です。ページ名は「ページ名#anchor」の記述を行う事で移動先のアンカーも指定可能です。$back::allowjavascriptが0の場合は、HTTP_REFERER環境変数を参照し、内容があれば表示します。
+
+=back
+
+=head1 設定
+
+=head2 back.inc.pl
+
+=over 4
+
+=item $back::allowpagelink
+
+ページ名(+アンカー名)による戻り先指定を可能とするかどうかを設定します。
+
+=item $back::allowjavascript
+
+戻り先の指定にJavaScript?(history.go(-1))を利用するかどうか 
+
+もし、JavaScriptの履歴が存在しない場合は表示しません。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/back
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/back/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/back.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

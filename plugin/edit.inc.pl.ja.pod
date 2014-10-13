@@ -1,0 +1,109 @@
+#$Id: edit.inc.pl.ja.pod,v 1.49 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+edit.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ ?cmd=edit&mypage=ページ名&refer=関連ページ&under=上層にするページ
+
+=head1 説明
+
+指定したページを編集する
+
+ページ名はエンコードされていなければならない。
+
+=head1 設定
+
+=head 2 pyukiwiki.ini.cgi
+
+=over 4
+
+=item $::cols
+
+テキストエリアのカラム数
+
+=item $::rows
+
+テキストエリアの行数
+
+=item $::extend_edit
+
+拡張機能(JavaScript) 1:使用/0:未使用
+
+=item $::pukilike_edit
+
+PukiWikiライクの編集画面
+
+0:PyukiWikiオリジナル
+
+1:PukiWikiライク
+
+2:PukiWikiライク＋テンプレート読み込み機能
+
+3:PukiWikiライク＋新規作成時のみテンプレート読み込み機能
+
+=item $::edit_afterpreview
+
+プレビューを 0:編集画面の上 1:編集画面の下
+
+=item $::new_refer
+
+新規作成の場合、関連ページのリンクを初期値として表示する画面を新規ページ名入力画面で表示する。
+
+空文字にすると表示されません。
+
+この設定は、newpage.inc.pl のものです。
+
+=item $::new_dirnavi
+
+新規ページ作成画面で、どのページの下層に来るか選択できるようにする 1:使用/0:未使用
+
+この設定は、newpage.inc.pl のものです。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/edit
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/edit/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/edit.inc.pl>
+
+=item YukiWiki
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

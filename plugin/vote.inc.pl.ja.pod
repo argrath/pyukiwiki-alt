@@ -1,0 +1,57 @@
+#$Id: vote.inc.pl.ja.pod,v 1.47 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+vote.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #vote(選択肢１,選択肢２,選択肢３[投票数],[[WikiName]][投票数]…)
+
+=head1 説明
+
+選択肢と投票ボタンが並んだフォームを表示する。。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/vote
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/vote/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/vote.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

@@ -1,0 +1,63 @@
+#$Id: rss10.inc.pl.ja.pod,v 1.49 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+rss10.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ ?cmd=rss10[&lang=lang]
+
+=head1 説明
+
+RecentChangesをRSS(RDF Site Summary)1.0に変換して出力。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/rss10
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/rss10/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/rss10.inc.pl>
+
+=item YukiWiki
+
+Yuki::RSSを使用しています。
+
+L<http://www.hyuki.com/yukiwiki/wiki.cgi>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

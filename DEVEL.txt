@@ -1,0 +1,66 @@
+PyukiWiki - 自由にページを追加・削除・編集できるWebページ構築CGI
+
+	"PyukiWiki" version 0.1.7-rc3 $$
+	Copyright (C)
+	  2005-2006 PukiWiki Developers Team
+	  2004-2006 Nekyo (Based on PukiWiki, YukiWiki)
+	License: GPL version 2 or (at your option) any later version
+			and/or Artistic version 1 or later version.
+	Based on YukiWiki http://www.hyuki.com/yukiwiki/ and PukiWiki
+
+	URL:
+	http://nekyo.hp.infoseek.co.jp/
+	http://pyukiwiki.sourceforge.jp/
+
+	MAIL:
+		Nekyo <nekyo (at) yamaneko (dot) club (dot) ne (dot) jp>
+		ななみ <nanami (at) daiba (dot) cx> (注：ネカマです)
+
+	$Id: DEVEL.txt,v 1.40 2006/09/29 09:11:31 papu Exp $
+
+	このテキストファイルはShiftJIS、TAB4で記述されています。
+
+-------------------------------------------------
+■ devel版について
+-------------------------------------------------
+
+このファイルは、PyukiWiki開発現場のソースをほぼそのまま
+パッケージにしたものです。
+
+リリース版との差異は以下のとおりです。
+
+・リリース版をビルドするためのツールが入っている
+・リリース版を出すためのパッチが入っている（RecentChanges, info/*）
+・デフォルトの設定が評価用になっている
+・wiki本体、プラグインに、perl の pod (ドキュメント）がついている
+・リリース版にはないコメントが存在する
+　リリース版はCGI設置時のファイルサイズ削減を考慮のため、
+　コメントを一部削除しています。
+
+-------------------------------------------------
+■ ファイルリリースの方法
+-------------------------------------------------
+　基本的には、DEVEL版はリリース(-full)版と同じ構成ですので
+　バージョンがあっていれば、DEVEL版のファイルとリリース(-full)版の
+　ファイルが混在してもそのまま動作するようになっています。
+　（ただし、$::debug変数に関する物を除く）
+
+　ですが、新たにリリースする場合は、以下のような操作を
+　行なってください。
+
+　適当な、UNIX端末上で
+　make pkg
+　と入力して下さい。
+　release/ 以下が作成され、リリース版がその中に
+　ビルドされます。
+　archive/ 以下が作成され、その中にアーカイブが作成されます。
+
+　アーカイブを作成するには、以下のツールが必要です。
+
+　・tar - 標準で入っているはずです。
+　・7zip または p7zip 7za.exeで高圧縮のgzip、zipをします。
+　　http://www.7-zip.org/
+　　http://www.7-zip.org/ja/
+　　http://sourceforge.net/projects/p7zip/
+
+　p.s.Makefileの書き方がガチガチになっています。汗

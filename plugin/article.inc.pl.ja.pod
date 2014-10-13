@@ -1,0 +1,119 @@
+#$Id: article.inc.pl.ja.pod,v 1.49 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+article.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #article
+
+=head1 説明
+
+BBS風プラグイン
+
+=head1 設定
+
+=head2 pyukiwiki.ini.cgiの設定
+
+=over 4
+
+=item $::writefrozenplugin
+
+１の場合、凍結されたページでも書き込めるようにする。
+
+=back
+
+=head2 article.inc.plの設定
+
+=over 4
+
+=item $article::cols
+
+テキストエリアのカラム数
+
+=item  $article::rows
+
+テキストエリアの行数
+
+=item $article::name_cols
+
+名前テキストエリアのカラム数
+
+=item $article::subject_cols
+
+題名テキストエリアのカラム数
+
+=item $article::name_format
+
+名前の挿入フォーマット（リソースに記述されています）
+
+=item $article::subject_format
+
+題名の挿入フォーマット
+
+=item $article::ins
+
+挿入する位置 1:欄の前 0:欄の後
+
+=item $article::comment
+
+書き込み下に一行コメントを 1:入れる 0:入れない
+
+=item $article::auto_br
+
+改行を自動的に変換する 1:する 0:しない
+
+=item $article::noname
+
+1 の場合、名前なしで処理しない
+
+=item $article::nosubject
+
+1 の場合、題名なしで処理しない
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/article
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/article/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/article.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

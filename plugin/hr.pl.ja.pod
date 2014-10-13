@@ -1,0 +1,60 @@
+#$Id: hr.pl.ja.pod,v 1.15 2006/03/04 13:12:53 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+hr.pl - PyukiWiki / YukiWiki プラグイン
+
+=head1 概要
+
+ #hr
+
+=head1 説明
+
+行頭で #hr を記述すると、区切り線になります。区切り線は上位のブロック要素の幅の60%の長さの水平線がセンタリングされて引かれます。
+
+このプラグインはYukiWikiと互換性があります。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/hr
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/hr/>
+
+
+=item PyukiWiki CVSレボジトリ
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/hr.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

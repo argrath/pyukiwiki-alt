@@ -1,0 +1,87 @@
+#$Id: lookup.inc.pl.ja.pod,v 1.32 2006/03/04 13:12:53 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+lookup.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #lookup(google,Googleで検索)
+ #lookup(pyukiwiki,PyukiWiki開発サイトのページ,Download)
+
+=head1 説明
+
+記述した位置にテキスト入力欄とボタンを表示します。任意の文字列を入力してボタンを押すと、InterWikiNameと入力値から生成したURLへ移動します。これによって、検索エンジンにクエリを送信したり、番号をタイプするだけで該当するアーカイブにアクセスすることなどが可能になります。
+
+=head1 使用方法
+
+ #lookup(InterWikiName, [ボタン名], [入力欄の初期値])
+
+=over 4
+
+=item InterWikiName
+
+InterWikiNameに設定した値の一つを指定します。
+
+=item ボタン名
+
+ボタンに表示するキャプションを指定します。省略時は'LookUp'です。
+
+=item 入力欄の初期値
+
+初期値を指定したい場合に記入します。省略時は空文字列になります。
+
+=head1 設定
+
+URLの生成にはInterWikiを利用します。
+このプラグインが生成するURLは、以下のようなInterWikiと同じです。
+InterWikiNameのページに、あらかじめURLの生成に使用するInterWikiNameを設定しておく必要があります。
+
+ [InterWikiName interwikiname]
+ [URLサフィックス InterWikiName] utf8またはsjis,euc,jis,raw
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/lookup
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/lookup/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/lookup.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

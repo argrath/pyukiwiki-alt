@@ -1,0 +1,180 @@
+#$Id: pcomment.inc.pl.ja.pod,v 1.11 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+pcomment.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #pcomment
+ #pcomment({ [コメント記録ページ], [表示件数], [noname], [nodate], [above], [below], [reply] })
+
+=head1 説明
+
+別のページにコメントを記録することができるcommentプラグインです。設置した場所には最新のコメントだけを表示することができます。ラジオボタンを表示し、指定した部分にコメントを付けることもできます。
+
+=head1 使用方法
+
+=over 4
+
+=item コメント記録ページ
+
+コメント記録ページ にはコメントを記録するページ名を指定します。省略すると、pcommentプラグイン内の $pcomment::comment_page で指定されたページにコメントが記録されます。デフォルトは [コメント/(設置したページ名)] です。指定したページが存在しなくても、最初にコメントを追加した時に作成します。
+
+コメント記録ページには数字だけで構成されるページ名を指定することができません。
+
+=item 表示件数
+
+表示件数 は表示する最新コメントの数を指定します。第1レベルの番号なしリストだけをカウントします。省略すると、pcommentのデフォルト件数(通常10件。$pcomment::num_comments で変更可能)が表示されます。
+
+=item noname
+
+名前の入力欄を表示しません。
+
+=item nodate
+
+日付を挿入しません。
+
+=item above
+
+挿入したコメントをフォームの上に表示します。コメントは上が古く、下に向かって新しい順に並びます。 
+
+=item below
+
+挿入したコメントをフォームの下に表示します。コメントは下が古く、上に向かって新しい順に並びます。 
+
+=item reply
+
+コメントの頭にラジオボタンを表示します。あるコメントに対するリプライが、そのコメントのラジオボタンをチェックすることで可能になります。
+
+=back
+
+=head1 設定
+
+=head2 pyukiwiki.ini.cgiの設定
+
+=over 4
+
+=item $::writefrozenplugin
+
+１の場合、凍結されたページでも書き込めるようにする。
+
+=back
+
+=head2 pcomment.inc.plの設定
+
+=over 4
+
+=item $pcomment::format
+
+コメント欄の全体フォーマットをWiki文法で指定します。
+
+\x08はセパレーターなので、削除しないで下さい。
+
+=item $comment::noname
+
+1 の場合、名前なしで処理しない
+
+=item $comment::nodata
+
+1 の場合、コメントなしでエラーとする
+
+=item $pcomment::size_msg
+
+コメントのテキストエリアの表示幅 
+
+=item $pcomment::size_name 
+
+コメントの名前テキストエリアの表示幅 
+
+=item $pcomment::format_name
+
+コメントの名前挿入フォーマット
+
+=item $pcomment::format_msg
+
+コメントの欄の挿入フォーマット
+
+=item $pcomment::format_now
+
+コメントの日付挿入フォーマット &newプラグインで認識できる書式である必要があります。
+
+=item $pcomment::comment_page
+
+デフォルトのコメントページを指定します。
+
+=item $pcomment::num_comments = 10
+
+デフォルトの最新コメント表示数
+
+=item $pcomment::direction_default
+
+入力内容を1:above(先頭)/0:below(末尾)のどちらに挿入するかを指定します。
+
+=item $pcomment::timestamp
+
+タイムスタンプ更新を以下のように指定します。
+
+ 0:なし
+ 1:設置ページのタイムスタンプ更新
+ 2:コメントページのタイムスタンプ更新 (デフォルト)
+ 3:両方
+
+=item $pcomment::viewcommentpage
+
+書き込み後の画面遷移を指定します。
+
+ 0:書き込み後コメントページへ戻る
+ 1:書き込み後設置ページへ戻る (デフォルト)
+
+=item $pcomment::frozencommentpage
+
+1:コメントページ新規作成時、凍結した状態にしておきます。
+
+pyukiwiki.ini.cgi にて、$::writefrozenpluginが1に設定されていると、フォームからは書き込み可能です。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/pcomment
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/pcomment/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/pcomment.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

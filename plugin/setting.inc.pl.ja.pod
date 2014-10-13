@@ -1,0 +1,116 @@
+#$Id: setting.inc.pl.ja.pod,v 1.26 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+setting.inc.pl - PyukiWiki 管理者向けプラグイン
+
+=head1 概要
+
+ ?cmd=setting
+ lib/setting.inc.pl を lib/setting.inc.cgi にリネーム
+
+=head1 説明
+
+ユーザーの閲覧環境の設定をして、cookieに保存します。
+
+=head1 設定
+
+=head2 pyukiwiki.ini.cgi
+
+=over 4
+
+=item $::use_Setting
+
+メニューの設定リンクを有効にします。
+
+=item $::cookie_expire
+
+保存cookieの有効期限を設定します。
+
+=item $::cookie_refresh
+
+保存cookieのリフレッシュ間隔を設定します。
+
+=item $::write_location=1
+
+Location移動が有効になってないと使用できません。
+
+=back
+
+=head2 resource/setting.(lang).txt
+
+=over 4
+
+=item plugin_setting_(itemname)
+
+設定項目名を指定します。
+
+=item plugin_setting_(itemname)_check
+
+この設定をできるか否かを指定します。最初に sub という文字列がある場合、それ以降の perl スクリプトを実行します。
+
+1で設定画面は有効、0 で設定画面は無効にします。
+
+この設定をしない場合は、有効とみなします。
+
+=item plugin_setting_(itemname)_list
+
+設定項目のリストを設定します。
+
+設定値:設定名,設定値:設定名 のように指定します。
+
+また、最初に sub という文字列がある場合、それ以降の perl スクリプトを実行し、その返値の配列をリストと指定します。
+
+=item plugin_setting_(itemname)_default
+
+設定項目のデフォルト値を設定します。
+
+また、最初に sub という文字列がある場合、それ以降の perl スクリプトを実行し、その返値をデフォルト値と指定します。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Admin/setting
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Admin/setting/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/setting.inc.pl>
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/lib/setting.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

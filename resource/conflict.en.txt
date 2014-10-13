@@ -1,0 +1,16 @@
+#
+# PyukiWiki Conflict file (Japanese EUC)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: conflict.en.txt,v 1.50 2006/09/29 09:11:32 papu Exp $
+#
+*On updating, a collision has occurred.
+
+It seems that someone has already updated this page while you were editing it.
+
+To the following...
+Since there is a text which you edited,
+Your contents of edit are not lost,
+Please copy & paste to a notepad etc. immediately now.
+
+Since copy & paste ends,
+Contents newest by looking RecentChanges and please reedit again.

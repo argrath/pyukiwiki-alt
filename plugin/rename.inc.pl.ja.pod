@@ -1,0 +1,71 @@
+#$Id: rename.inc.pl.ja.pod,v 1.48 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+rename.inc.pl - PyukiWiki 管理者向けプラグイン
+
+=head1 概要
+
+ ?cmd=rename[&refer=encoded_page_name]
+
+=head1 説明
+
+Wikiページ名を変更するためのプラグインです。
+
+カウンタ、差分(diff)、添付ファイルもあわせてリネームされます。 
+
+PukiWikiからの移植です。 
+
+PyukiWikiで実装されていない部分は省略しています。 
+
+=head1 バグ
+
+recentに対して更新をかけていない。 
+
+=head1 参考
+
+=over 4
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Admin/rename/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/rename.inc.pl>
+
+=item サイト制作/PyukiWiki/プラグイン/リネーム
+
+0.1.5までの対応版です。
+
+L<http://www.re-birth.com/pyuki/wiki.cgi?%a5%b5%a5%a4%a5%c8%c0%a9%ba%ee%2fPyukiWiki%2f%a5%d7%a5%e9%a5%b0%a5%a4%a5%f3%2f%a5%ea%a5%cd%a1%bc%a5%e0>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Junichi
+
+L<http://www.re-birth.com/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by Junichi.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

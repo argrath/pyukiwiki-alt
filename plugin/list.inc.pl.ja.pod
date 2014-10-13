@@ -1,0 +1,57 @@
+#$Id: list.inc.pl.ja.pod,v 1.47 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+list.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ ?cmd=list
+
+=head1 説明
+
+全ページの一覧を表示します。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/list
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/list/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/list.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

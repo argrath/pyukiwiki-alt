@@ -1,0 +1,11 @@
+#
+# PyukiWiki Resource file (Japanese EUC)
+# "PyukiWiki" version 0.1.7-rc3 $$
+# $Id: newpage.ja.txt,v 1.52 2006/09/29 09:11:32 papu Exp $
+#
+
+# newpage.inc.pl
+newpage_plugin_title=ページ新規作成
+newpage_plugin_msg=ページ新規作成:
+newpage_plugin_under=以下の下層に作成する:
+newpage_plugin_none=-- 指定なし --

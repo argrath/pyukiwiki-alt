@@ -1,0 +1,155 @@
+#$Id: ref.inc.pl.ja.pod,v 1.47 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+ref.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #ref(filename[,page][,parameters][,title])
+
+=head1 説明
+
+ページに添付されたファイルを展開する。またはURLを展開する
+
+=head1 使用方法
+
+ #ref(filename[,page][,parameters][,title])
+
+=over 4
+
+=item filename
+
+添付ファイル名、あるいはURL
+
+'ページ名/添付ファイル名'を指定すると、そのページの添付ファイルを参照する。
+指定するURLがCGIスクリプト等の場合、末尾に '&.png' 等をつけると認識できるようになります。
+
+=item page
+
+ファイルを添付したページ名
+
+=Left|Center|Right
+
+横の位置合わせ
+
+=item Wrap|Nowrap
+
+テーブルタグで囲む/囲まない
+
+=item Around
+
+テキストの回り込み
+
+=item noicon
+
+アイコンを表示しない
+
+=item nolink
+
+元ファイルへのリンクを張らない
+
+=item noimg
+
+画像を展開しない
+
+=item zoom
+
+縦横比を保持する
+
+=item '999x999'
+
+サイズを指定(幅x高さ)
+
+=item '999%'
+
+サイズを指定(拡大率)
+
+=item その他の文字列
+
+imgのalt/hrefのtitleとして使用
+
+=back
+
+ページ名やパラメータに見える文字列を使用するときは、
+#ref(hoge.png,,zoom)のようにタイトルの前にカンマを余分に入れる
+
+=head1 設定
+
+=over 4
+
+=item $ref::default_align
+
+デフォルトの画像の位置を指定します。left, center, または right
+
+=item $ref::summary
+
+#refで表示した際に、Image::Magick で画像サイズを縮小する場合 1 にします。
+
+Image::Magick が存在しないと、画像が表示されません。
+
+=item $ref::popup
+
+添付ファイルへのリンクのポップアップをするには 1 を指定します。
+
+=item $ref::popup_regex
+
+ポップアップ対象の拡張子を正規表現で指定します。
+
+=item $ref::imagepopup
+
+添付画像ファイルへのポップアップを以下のように指定します。
+ 0 デフォルトのポップアップ
+ 1 JavaScriptのwindow.openを用いた、表示サイズ指定可能なポップアップ
+ 2 同一のブラウザ画面の中央に、ポップアップする（その画像をクリックすると閉じます）
+
+=item $ref::wopen
+
+$ref::imagepopup 時の window.openのパラメータを指定します。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/ref
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/ref/>
+
+
+=item PyukiWiki CVSレボジトリ
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/ref.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

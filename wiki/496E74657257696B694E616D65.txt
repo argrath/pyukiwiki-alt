@@ -1,0 +1,55 @@
+*[[InterWiki>PyukiWiki:PyukiWiki/Glossary/InterWiki]] サーバーリスト
+-$Id: 496E74657257696B694E616D65.txt,v 1.51 2006/09/29 09:11:32 papu Exp $ // # debug
+
+  [URL サーバ名] タイプ
+の形式で記述してください。
+
+|SEO SPAMボットの攻撃対象になるため、デフォルトでこのページは凍結されています。|
+
+** WikiEngines
+-[http://www.c2.com/cgi/wiki? WikiWikiWeb] raw WikiNameのみなのでraw。
+-[http://openwiki.com/? OpenWiki] raw 英語なのでraw
+//-[http://www.todo.org/cgi-bin/jp/tiki.cgi?c=v&amp;p= Tiki] euc
+-[http://www.hyuki.com/yukiwiki/wiki.cgi? YukiWiki] euc
+-[http://www.jin.gr.jp/~nahi/RWiki/?cmd=view;name= RWiki] euc
+-[http://digit.que.ne.jp/work/index.cgi? WalWiki] euc
+-[http://fswiki.poi.jp/wiki.cgi? FSWiki] euc
+-[http://hikiwiki.org/ja/? Hiki] euc
+-[http://xiki.mitsuki.no-ip.com/? Xiki] utf8
+-[http://pukiwiki.sourceforge.jp/? PukiWiki] utf8
+-[http://pukiwiki.sourceforge.jp/? pukiwiki.org] utf8
+-[http://pukiwiki.sourceforge.jp/dev/? pukiwiki.dev] euc
+
+** PyukiWiki
+// PyukiWiki Main Site
+-[http://pyukiwiki.sourceforge.jp/? PyukiWiki] euc
+-[http://pyukiwiki.sourceforge.jp/? PyukiWiki.dev] euc
+// Nekyo Site
+-[http://nekyo.hp.infoseek.co.jp/? PyukiWiki.org] euc
+-[http://nekyo.hp.infoseek.co.jp/? Nekyo] euc
+
+** Search Engine
+-[http://www.google.co.jp/search?ie=utf8&amp;oe=utf8&amp;q=$1&amp;lr=lang_ja&amp;hl=ja Google.jp] utf8 
+-[http://www.google.co.jp/search?ie=utf8&amp;oe=utf8&amp;q=$1&amp;lr=lang_ja&amp;hl=ja Google] utf8 
+//IEのGoogleツールバー対策でUTF-8になってます。
+-[http://search.yahoo.co.jp/bin/search?p=$1 Yahoo.jp] euc
+-[http://search.yahoo.co.jp/bin/search?p=$1 Yahoo] euc
+-[http://search.yahoo.co.jp/search/dir?p=$1 Yahoo.dir] euc
+-[http://www.infoseek.co.jp/ITitles?qt=$1 Infoseek] euc
+-[http://search.goo.ne.jp/web.jsp?MT=$1 goo] euc
+-[http://search.fresheye.com/?kw=$1 fresheye] sjis
+-[http://ja.wikipedia.org/wiki/ WikiPedia] utf8
+
+** 拡張InterWikiName
+-[./?cmd=newpage&amp;page= 新規]
+-[./?cmd=newpage&amp;page= New]
+-[./?cmd=read&amp;page= 参照]
+-[./?cmd=read&amp;page= View]
+-[./?cmd=edit&amp;page= 編集]
+-[./?cmd=edit&amp;page= Edit]
+-[./?cmd=search&amp;word=$1&amp;type=OR 検索]
+-[./?cmd=search&amp;word=$1&amp;type=OR Search]
+
+*** その他
+//-[http://www.gembook.jp/tsum/page.pys?wiki= ウヰキエリア] moin
+-[http://tdiary-users.sourceforge.jp/cgi-bin/wiki.cgi? tDiaryUsers] euc

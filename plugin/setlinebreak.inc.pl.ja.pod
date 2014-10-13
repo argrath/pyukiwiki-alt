@@ -1,0 +1,76 @@
+#$Id: setlinebreak.inc.pl.ja.pod,v 1.12 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+setlinebreak.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #setlinebreak([0|1] or [off|on|default])
+ &*lfmode([0|1);
+
+=head1 説明
+
+入力文章中の改行を改行とみなすかどうかの設定を行います。
+
+PyukiWikiが入力文章中の改行をどのように扱うかはpukiwiki.ini.cgi内の$::line_breakの設定内容によって変わります。
+
+setlinebreakプラグインは該当ページの以降の行に関して、$::line_breakの設定に因らず改行をどのように扱うかを指定できるようになります。
+
+=head1 使用方法
+
+=over 4
+
+=item 引数 
+パラメータには以降の改行の扱いを指定します。パラメータが省略された場合、改行とみなすかどうかについての設定を逆転させます。
+
+ onまたは1 − 以降の文章で段落内の改行を改行とみなします($::line_break=1と同様)。 
+ offまたは0 − 以降の文章で改行を無視します($::line_break=0と同様)。改行を行うためには行末にチルダを記述するか、行中でbrプラグインを使用する必要があります。 
+ default − 改行の扱いをそのサイトの$::line_break設定に戻します。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/setlinebreak
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/setlinebreak/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/setlinebreak.inc.pl>
+
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

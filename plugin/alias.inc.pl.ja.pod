@@ -1,0 +1,93 @@
+#$Id: alias.inc.pl.ja.pod,v 1.14 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+alias.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #alias(ページ名 [,pagenameflag])
+
+=head1 説明
+
+ページを表示せずに、指定した別のWikiページへジャンプする。
+
+=head1 使用方法
+
+=over 4
+
+=item ページ名
+
+ページを指定します。もし、ループされている場合は、その時点でエイリアスを終了し、現時点でのページを表示します。
+
+=item pagenameflag
+
+0 を指定すると、エイリアス先のページ名を表示します。
+
+1 を指定すると、エイリアス元のページ名を表示します。ただし、編集等のリンクはエイリアス先のページ名が指定されます。
+
+=item その他
+
+エイリアス元のページを変更するには、?cmd=adminedit&mypage=ページ名、もしくは listfrozen プラグインの編集リンクから変更して下さい。
+
+=back
+
+=head1 設定
+
+=head2 alias.inc.pl
+
+=over 4
+
+=item $alias::loopmax
+
+エイリアスの最大回数を指定します。デフォルトは２です。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/yetlist
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/yetlist/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/alias.inc.pl>
+
+=item PukiWiki alias.inc.php
+
+L<http://221.243.18.83/~pukiwiki/index.php?%A5%D7%A5%E9%A5%B0%A5%A4%A5%F3%2Falias.inc.php>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

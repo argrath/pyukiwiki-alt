@@ -1,0 +1,79 @@
+#$Id: help.inc.pl.ja.pod,v 1.15 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+help.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ ?cmd=help [& refer=refer page]
+
+=head1 説明
+
+ヘルプページを表示します
+
+ヘルプページがプラグインになることで、編集・差分・添付等のリンクが、ヘルプ表示元のページを指し示すことができます。
+
+
+=head1 使用方法
+
+=head 2 pyukiwiki.ini.cgi
+
+=over 4
+
+=item $::useHelpPlugin
+
+1 にすると、このプラグインを使用してヘルプを表示します。
+
+ヘルプページを編集する場合は、以下の方法で行なってください。
+
+ ・admineditを直接呼び出す
+ 　?cmd=adminedit&mypage=%a5%d8%a5%eb%a5%d7
+ ・一度ページを表示してから、凍結ボタンで編集をする
+ 　?%a5%d8%a5%eb%a5%d7
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/help
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/help/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/help.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

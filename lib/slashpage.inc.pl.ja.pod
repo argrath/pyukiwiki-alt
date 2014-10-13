@@ -1,0 +1,69 @@
+#$Id: slashpage.inc.pl.ja.pod,v 1.50 2006/09/29 09:11:31 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+slashpage.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+階層下のページ名を容易にリンクするプラグイン
+
+=head1 説明
+
+WikiName や、[[BracketName]] でリンクしても、以下のような階層下にあるようなページにリンクできるようにします。
+
+ PyukiWiki/Glossary/WikiName
+ PyukiWiki/Sample/BracketName
+
+先に、階層下よりも、実際のページ名で検索しますので、名前が重複する場合はすべてのページ名でエイリアス等を使用してリンクして下さい。
+
+=head1 使用方法
+
+slashpage.inc.cgi にリネームして下さい。
+
+=head1 上書きする関数
+
+関数 make_link_wikipage を上書きします。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/ExPlugin/slashpage
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/ExPlugin/slashpage/>
+
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/lib/slashpage.inc.pl>
+
+=back
+
+=head1 著者
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

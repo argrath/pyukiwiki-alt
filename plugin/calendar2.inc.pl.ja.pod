@@ -1,0 +1,117 @@
+#$Id: calendar2.inc.pl.ja.pod,v 1.42 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+calendar2.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #calendar(ページ名)
+ #calendar(ページ名|*,yyyymm,date_format)
+ ?cmd=calendar[&date=yyyymm]
+
+=head1 説明
+
+指定した位置にカレンダーを設置します。表示月のとなりに表示されたリンク(<< および >>)を選択することで先月／次月分のカレンダーを表示できます。カレンダー上でyyyy/mm/ddという日付を選択すると、ページ名/yyyy-mm-ddというページを表示できます。当日分のページが作成されていた場合、カレンダーの右隣に当日分のページ内容を表示します。
+
+=head1 使用方法
+
+=over 4
+
+=item ページ名
+
+ページ名で表示するページの上位階層のページを指定できます。ページ名を省略すると設置したページのページとなります。ページ名に*を指定すると上位階層のページはなし（表示するページ名がyyyy-mm-dd）となります。
+
+=item yyyymm
+
+yyyymmで表示するカレンダーの西暦と月を指定できます。省略時は当日の年月となります。
+
+=item date_format
+
+date_formatは、内部関数 date の書式文字列を指定できます。
+
+date_formatには、半角の ( ) を使用することはできません。
+
+詳しくは以下のサンプルを御覧下さい
+
+=back
+
+=head1 設定
+
+=over 4
+
+=item $::calendar2_wiki
+
+カレンダーの内容が存在しない時に、新規編集画面での初期値を設定します。
+
+=item $::calendar2_menubaronly
+
+1に設定すると、MenuBar等でカレンダーを運用することを想定したリンクをします。
+
+<< 及び >> をクリックしても、表示されているページは変化せず、カレンダーのみ更新されます。
+
+=back
+
+=head1 サンプル
+
+書式文字列のサンプルです。
+
+=over 4
+
+=item #calendar2(pagename,,Y-n-j[D])
+
+2006-1-1[Sun]
+
+=item #calendar2(pagename,,y/m/J)
+
+06/01/01
+
+=item #calendar2(pagename,,SGGY年Zn月Zj日（lL） RS) with exdate
+
+平成１８年１月１日（日） 元旦
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/calendar2
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/calendar2/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/calendar2.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

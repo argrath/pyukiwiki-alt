@@ -1,0 +1,63 @@
+#$Id: adminedit.inc.pl.ja.pod,v 1.52 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+adminedit.inc.pl - PyukiWiki 管理者向けプラグイン
+
+=head1 概要
+
+ ?cmd=adminedit&mypage=ページ名
+
+=head1 説明
+
+指定したページを編集・凍結する
+
+編集・凍結するには、凍結パスワードが必要です。
+
+ページ名はエンコードされていなければならない。
+
+=head1 参考
+
+=over 4
+
+=over 4
+
+=item PyukiWiki/Plugin/Admin/adminedit
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Admin/adminedit/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/adminedit.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

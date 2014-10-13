@@ -1,0 +1,217 @@
+#$Id: now.inc.pl.ja.pod,v 1.30 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+now.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ &now;
+ &now();
+ &now(now_format, [yyyy/mm/dd]);
+
+=head1 説明
+
+現在または指定した日付を指定フォーマットで表示します。
+
+「&now;」のように、() を指定しないで指定すると、書き込み時の日付に自動的に変換され、プラグインとして実行されません。
+
+それ以外の場合は、現在の日付、または指定した日付を表示します。
+
+=head1 使用方法
+
+=over 4
+
+=now_format
+
+now_formatは、内部関数 date の書式文字列を指定できます。
+
+now_formatには、半角の ( ) を使用することはできません。
+
+詳しくは以下のサンプルを御覧下さい
+
+=item yyyy/mm/dd
+
+表示する日付を指定します。省略時は当日の年月日となります。
+
+=back
+
+=head1 サンプル
+
+書式文字列のサンプルです。
+
+=over 4
+
+=item &now(Y-n-j[D],2006/1/1)
+
+2006-1-1[Sun]
+
+=item &now(y/m/J H:m:s,2006/1/1 23:53:11)
+
+06/01/01 23:53:11
+
+=item &now(SGGY年Zn月Zj日（lL） RS,2006/1/1) with exdate
+
+平成１８年１月１日（日） 元旦
+
+=back
+
+=head1 書式
+
+=head2 &date で使えるすべての書式です。
+
+ 西暦:Y:西暦(4桁)/y:西暦(2桁)
+ 
+   月:n:1-12/m:01-12/M:Jan-Dec/F:January-December
+ 
+   日:j:1-31/d:01-31
+ 
+ 曜日:l:Sunday-Saturday/D:Sun-Sat/DL:日曜日-土曜日/lL:日-土
+ 
+ ampm:a:am or pm/A:AM or PM/AL:午前 or 午後
+ 
+   時:g:1-12/G:0-23/h:01-12/H/00-23
+ 
+   分:k:0-59/i:00-59 
+ 
+   秒:S:0-59/s:00-59
+ 
+  t 指定した月の日数。 28 から 31 
+  O グリニッジとの時間差
+  r RFC 822 フォーマットされた日付 例: Thu, 21 Dec 2000 16:01:07 +0200 
+  Z タイムゾーンのオフセット秒数。 -43200 から 43200 
+  L 閏年であるかどうかを表す論理値。 1なら閏年。0なら閏年ではない。 
+  B Swatch インターネット時間 000 から 999 
+  U Unix 時(1970年1月1日0時0分0秒)からの秒数 See also time() 
+
+=head2 拡張プラグインexdate.inc.cgi導入時に使えるすべての書式です。
+
+     元号:SG:明治/大正/昭和/平成 Sg:明/大/昭/平
+          SA:M/T/S/H Sa:Ｍ/Ｔ/Ｓ/Ｈ
+ 
+   元号年:SY:1-2桁(1〜10〜) Sy:0補完して2桁(01〜10〜)
+          GY:全角1-2桁(元〜２〜１０〜)
+          XY:全角1-2桁(元〜二〜十〜十一〜二十〜二十一〜)
+          Xy:全角1-2桁(元〜二〜一〇〜十一〜二〇〜二一〜)
+ 
+     年度 N4SG N4Sg N4Sa N4SY N4Sy N4GY N4XY N4Xy 上記元号年同、４月を基点
+          N9SG N9Sg N9Sa N9SY N9Sy N9GY N9XY N9Xy 上記元号年と同、９月を基点
+ 
+     西暦:Y:西暦(4桁)/y:西暦(2桁) - **
+         :ZY:全角4桁 Zy:全角2桁 KY:一七七〇〜二〇〇〇〜
+ 
+     皇暦:TY:西暦(4桁)/Ty:西暦(2桁) - **
+         :TZY:全角4桁 TZy:全角2桁 TzY:一七七〇〜二〇〇〇〜
+ 
+ 西暦年度:N4Y:西暦(4桁)/N4y:西暦(2桁)
+          N4ZY:全角2桁 N4Zy:全角2桁 N4KY:一七七〇〜二〇〇〇〜
+          N9ZY: N9Zy N9KY : ↑と同じで９月を基点
+ 
+       月:n:1-12/m:01-12/M:Jan-Dec/F:January-December - **
+          Zn:全角1-2桁(１−１２) Zm:0補完して全角2桁(０１−１２）
+          Kn:一〜十〜十二/Km:一〜一〇〜一二
+          kn:睦月,如月...
+ 
+       日:j:1-31/d:01-31 - **
+          Zj:全角1-2桁(１−３１) ZJ:0補完して全角2桁(０１−３１）
+          Kj:一〜十〜十一〜二十〜三十一/KJ:一〜一〇〜
+ 
+     曜日:l:Sunday-Saturday/D:Sun-Sat/DL:日曜日-土曜日/lL:日-土 - **
+ 
+     ampm:a:am or pm/A:AM or PM/AL:午前 or 午後 - **
+ 
+       時:g:1-12/G:0-23/h:01-12/H/00-23 - **
+          Zg:１−１２/ZG:０−２３/Zh:０１−１２/ZH/００−２３
+          Kg:一〜十〜十二/KG:零〜十〜十一〜二十/二十三
+          Kh:一〜一〇〜一二/KH:〇〜一〇〜一一〜二〇〜二三
+ 
+       分:k:0-59/i:00-59 - **
+          Zk:０−５９/Zi:００−５９
+          Kk:零〜五十九/Ki:〇〜五九
+ 
+       秒:S:0-59/s:00-59 - **
+          ZS:０−５９/Zs:００−５９
+          KS:零〜五十九/Ks:〇〜五九
+ 
+     祝日:RS:元旦/Rs:(元旦) 1948年より出力
+     行事:RG:七草/Rg:(七草) 1948年より出力
+   県民の:XG:都民の日/Xg:(都民の日) 1948年より出力
+     星座:SZ:おひつじ座/Sz:Aries
+   自分の:MG:.../Mg:(...) 1948年より出力
+   24節季:RK:立夏/Rk:(立夏)
+     六曜:RY:大安/赤口/先勝/友引/先負/仏滅
+   年干支:NK:甲子
+   日干支:HK:乙卵
+   日の宿:HY:角
+   旧暦年:QY:西暦(4桁)/Qy:西暦(2桁)
+         :QZY:全角4桁 QZy:全角2桁 QKY:一七七〇〜二〇〇〇〜
+ 
+     皇暦:EY:西暦(4桁)/Ey:西暦(2桁)
+         :EZY:全角4桁 EZy:全角2桁 EzY:一七七〇〜二〇〇〇〜
+ 
+       月:Qn:1-12/Qm:01-12
+          QZn:全角1-2桁(１−１２) QZm:0補完して全角2桁(０１−１２）
+          QKn:一〜十〜十二/QKm:一〜一〇〜一二
+          Qkn:睦月,如月...
+ 
+       日:Qj:1-31/QJ:01-31 - **
+          QZj:全角1-2桁(１−３１) QZJ:0補完して全角2桁(０１−３１）
+          QKj:一〜十〜十一〜二十〜三十一/QKJ:一〜一〇〜
+ 
+  t 指定した月の日数。 28 から 31 
+  O グリニッジとの時間差
+  r RFC 822 フォーマットされた日付 例: Thu, 21 Dec 2000 16:01:07 +0200 
+  Z タイムゾーンのオフセット秒数。 -43200 から 43200 
+  L 閏年であるかどうかを表す論理値。 1なら閏年。0なら閏年ではない。 
+  B Swatch インターネット時間 000 から 999 
+  U Unix 時(1970年1月1日0時0分0秒)からの秒数 See also time() 
+
+=head2 以下のPHP書式は対応していません。
+
+ W ISO-8601 月曜日に始まる年単位の週番号 (PHP 4.1.0で追加) 例: 42 (１年の第42週目) 
+ S 英語形式の序数を表すサフィックス。2 文字。 st, nd, rd or th. Works well with j  
+ T このマシーンのタイムゾーンの設定。 Examples: EST, MDT ... 
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/now
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/now/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/now.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item ななみ
+
+L<http://lineage.netgamers.jp/> etc...
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

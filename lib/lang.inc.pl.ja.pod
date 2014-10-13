@@ -1,0 +1,119 @@
+#$Id: lang.inc.pl.ja.pod,v 1.21 2006/09/29 09:11:31 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+lang.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+Wiki国際化対応プラグイン
+
+=head1 説明
+
+言語別のwikiを作成できるようにします。
+
+HTTP_ACCEPT_LANGUAGEを自動認識し、優先される言語を表示し、
+プラグイン lang.inc.pl によって設定された言語を表示できるようにします。
+
+=head1 使用方法
+
+lang.inc.cgi にリネームして下さい。
+
+以下のディレクトリを作成して下さい。
+
+ attach.(lang)  example attach.en
+ diff.(lang)    example diff.ja
+ cache.(lang)   example cache.zh-cn
+ counter.(lang) example counter.en-us
+ info.(lang)    example info.fr
+ wiki.(lang)    example wiki.ja
+
+=head1 設定
+
+=head2 pyukiwiki.ini.cgi
+
+=over 4
+
+=item $::lang
+
+デフォルトの言語を設定します。
+
+ja en fr en-us etc...
+
+=item $::charcode
+
+未実装
+
+=item $::kanjicode
+
+日本語の場合のみ、表示する漢字コードを指定します。
+
+ euc sjis utf8
+
+=item $::lang_list
+
+必要とする言語リストをスペース区切りで指定します。
+
+ $::lang_list="ja en";
+
+=item $::write_location=1;
+
+このプラグインは、Locationによる移動を行ないます。
+
+=back
+
+=head1 バグ
+
+この機能を利用すると、以下の初期化が2回行なわれますが、仕様です。
+
+ init_lang が2回呼び出される
+ リソースの読み込み（上書きします）
+ データベースをクローズし、ディレクトリを再設定し、データベースをオープン
+
+=head1 上書きする関数
+
+ありません
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/ExPlugin/lang
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/ExPlugin/lang/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/lib/lang.inc.pl>
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/lang.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2005-2006 by ななみ.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

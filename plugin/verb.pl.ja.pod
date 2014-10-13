@@ -1,0 +1,75 @@
+#$Id: verb.pl.ja.pod,v 1.49 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+verb.pl - PyukiWiki / YukiWiki プラグイン
+
+=head1 概要
+
+ &verb(SamplePage);
+
+=head1 説明
+
+PyukiWikiの整形ルールを無視するプラグイン 
+
+=head1 サンプル
+
+ 私はWikiNameはリンクにしたいけれど、&verb(SamplePage);をリンクにしたくない。
+ Javaで&verb(java.net.ServerSocket);を使った。
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/verb
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/verb/>
+
+
+=item PyukiWiki CVSレボジトリ
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/verb.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/verb
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/verb/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/verb.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2002-2006 by Hiroshi Yuki.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

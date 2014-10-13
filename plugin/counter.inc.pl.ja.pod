@@ -1,0 +1,82 @@
+#$Id: counter.inc.pl.ja.pod,v 1.48 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+counter.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #counter
+ &counter(total);
+ &counter(today);
+ &counter(yesterday);
+
+=head1 説明
+
+アクセスカウンター
+
+=head1 使用方法
+
+=over 4
+
+=item #counter
+
+すべての内容を表示
+
+=item &counter(total);
+
+ページ参照回数の総計を表示
+
+=item &counter(today);
+
+ページ参照回数（当日分）を表示
+
+=item &counter(yesterday);
+
+ページ参照回数（昨日分）を表示
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/counter
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/counter/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/counter.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

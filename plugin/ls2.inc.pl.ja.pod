@@ -1,0 +1,102 @@
+#$Id: ls2.inc.pl.ja.pod,v 1.47 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+ls2.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #ls2
+ #ls2(パターン,[title],[include],[link],[reverse])
+
+=head1 説明
+
+指定したパターンで始まるページ名を一覧表示します。
+省略時には現在のページが起点となります。
+
+=head1 使用方法
+
+ #ls2(pattern, [title],[include],[link],[reverse])
+
+=over 4
+
+=item pattern
+
+パターンには表示するページ名の共通部分を指定します。省略時は"設置したページ名/"となります。
+省略する時、他のオプションを指定する場合は、カンマが必要です。
+
+=item title
+
+ページに含まれる見出し(*,**,***)の一覧を併記します。 
+
+=item include
+
+インクルードしているページの見出しを再帰的に列挙します。
+
+=item link
+
+actionプラグインを呼び出すリンクを表示します。
+
+=item reverse
+
+ページの並び順を反転し、降順にします。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/ls2
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/ls2/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/ls2.inc.pl>
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/ls2
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/ls2/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/ls2.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut

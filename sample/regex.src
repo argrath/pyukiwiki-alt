@@ -1,0 +1,282 @@
+#!/usr/bin/perl
+######################################################################
+# regex.src - This is PyukiWiki, yet another Wiki clone.
+# $Id: regex.src,v 1.46 2006/09/29 09:11:32 papu Exp $
+#
+# "PyukiWiki" version 0.1.7-rc3 $$
+# Copyright (C) 2004-2006 by Nekyo.
+# http://nekyo.hp.infoseek.co.jp/
+# Copyright (C) 2005-2006 PyukiWiki Developers Team
+# http://pyukiwiki.sourceforge.jp/
+# Based on YukiWiki http://www.hyuki.com/yukiwiki/
+# Powerd by PukiWiki http://pukiwiki.sourceforge.jp/
+# License: GPL2 and/or Artistic or each later version
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the same terms as Perl itself.
+# Return:LF Code=EUC-JP 1TAB=4Spaces
+######################################################################
+# 正規表現の元ソースです。
+# CGIにはなっていません。コマンドラインで実行します。
+######################################################################
+
+######################################################################
+# puny URL / puny only URL
+# 日本語等ドメインの場合、URLの抽出を厳格にする必要がある
+# なお、現在punyurl.cgiでは、認証付のURL、ドメイン以後の
+# 日本語ページ名をサポートしていません。
+######################################################################
+
+$digit = q{[0-9]};
+$alpha = q{[a-zA-Z]};
+$alphanum = q{[a-zA-Z0-9]};
+$hex = q{[0-9A-Fa-f]};
+$escaped = qq{%$hex$hex};
+$uric = q{(?:[-_.!~*'a-zA-Z0-9;/?:@&=+$,]} . qq{|$escaped)};
+#$uric = q{(?:[-_.!~*'()a-zA-Z0-9;/?:@&=+$,]} . qq{|$escaped)};
+$fragment = qq{$uric*};
+$query = qq{$uric*};
+$pchar = q{(?:[-_.!~*'a-zA-Z0-9:@&=+$,]} . qq{|$escaped)};
+#$pchar = q{(?:[-_.!~*'()a-zA-Z0-9:@&=+$,]} . qq{|$escaped)};
+$param = qq{$pchar*};
+$segment = qq{$pchar*(?:;$param)*};
+$path_segments = qq{$segment(?:/$segment)*};
+$abs_path = qq{/$path_segments};
+$port = qq{$digit*};
+$IPv4address = qq{$digit+\\.$digit+\\.$digit+\\.$digit+};
+$toplabel = qq{$alpha(?:} . q{[-a-zA-Z0-9]*} . qq{$alphanum)?};
+$domainlabel = qq{$alphanum(?:} . q{[-_a-zA-Z0-9]*} . qq{$alphanum)?};
+$domainlabel_rfc3490_class= q{[-_0-9a-zA-Z\xa1-\xfe]};
+$domainlabel_rfc3490_punyonly_class= q{[\xa1-\xfe]};
+$domainlabel_rfc3490=qq{$domainlabel_rfc3490_class(?:} . qq{$domainlabel_rfc3490_class*} . qq{$domainlabel_rfc3490_class)?};
+$domainlabel_rfc3490_punyonly=
+		qq{$domainlabel_rfc3490_class(?:}
+		 . qq{$domainlabel_rfc3490_class*}
+			 . qq{$domainlabel_rfc3490_punyonly_class)?} .
+ '|' .
+		qq{$domainlabel_rfc3490_punyonly_class(?:}
+		 . qq{$domainlabel_rfc3490_class*}
+			 . qq{$domainlabel_rfc3490_class)?};# . 
+# '|' .
+#		qq{$domainlabel_rfc3490_class(?:}
+#		 . qq{$domainlabel_rfc3490_punyonly_class?};
+#			 . qq{$domainlabel_rfc3490_class)*};
+$hostname = qq{(?:(?:$domainlabel|$domainlabel_rfc3490)\\.)*$toplabel\\.?};
+$hostname_punyonly = qq{(?:(?:$domainlabel_rfc3490_punyonly)\\.)+$toplabel\\.?};
+#$hostname = qq{(?:$domainlabel\\.)*$toplabel\\.?};
+$host = qq{(?:$hostname|$IPv4address)};
+$host_punyonly = qq{(?:$hostname_punyonly)};
+$hostport = qq{$host(?::$port)?};
+$hostport_punyonly = qq{$host_punyonly(?::$port)?};
+$userinfo = q{(?:[-_.!~*'()a-zA-Z0-9;:&=+$,]|} . qq{$escaped)*};
+$server = qq{(?:$userinfo\@)?$hostport};
+$server_punyonly = qq{(?:$userinfo\@)?$hostport_punyonly};
+$authority = qq{$server};
+$authority_punyonly = qq{$server_punyonly};
+#$scheme = q{(?:https?|shttp)};
+$scheme = q{(?:https?|ftp)};
+$net_path = qq{//$authority(?:$abs_path)?};
+$net_path_punyonly = qq{//$authority_punyonly(?:$abs_path)?};
+$hier_part = qq{$net_path(?:\\?$query)?};
+$hier_part_punyonly = qq{$net_path_punyonly(?:\\?$query)?};
+$absoluteURI = qq{$scheme:$hier_part};
+$absoluteURI_punyonly = qq{$scheme:$hier_part_punyonly};
+$URI_reference = qq{$absoluteURI(?:\\x23$fragment)?};
+$URI_reference_punyonly = qq{$absoluteURI_punyonly(?:\\x23$fragment)?};
+$http_URL_regex = q{\b} . $URI_reference;
+$http_URL_regex_punyonly = q{\b} . $URI_reference_punyonly;
+
+######################################################################
+
+$test=<<EOM;
+http://pyukiwiki.sourceforge.jp/
+http://かいもの.jp/buying
+http://出稼ぎ.jp/ahaha.html#abc
+https://www.出稼ぎ.jp/ahaha.html#abc
+http://あああ.出稼ぎ.jp:82/ahaha.html#abc
+https://192.168.0.1/
+http://aiうえo.jp/
+http://aiうえお.jp/
+http://うえおai.jp/
+http://あiうeお.jp/ 
+http://東京駅.jp/
+http://新大阪駅.jp/
+http://京都駅.jp/
+
+''[[PyukiWiki $::version>http://pyukiwiki.sourceforge.jp/]]''
+Copyright&copy; 2004-2006 by [[Nekyo>http://nekyo.hp.infoseek.co.jp/]], [[PyukiWiki Developers Team>http://pyukiwiki.sourceforge.jp/]]
+License is [[GPL>http://www.opensource.jp/gpl/gpl.ja.html]], [[Artistic>http://www.opensource.jp/artistic/ja/Artistic-ja.html]]~
+Based on "[[YukiWiki>http://www.hyuki.com/yukiwiki/]]" 2.1.0 by [[yuki>http://www.hyuki.com/]]
+and [[PukiWiki>http://pukiwiki.sourceforge.jp/]] by [[PukiWiki Developers Term>http://pukiwiki.sourceforge.jp/]]
+
+
+EOM
+
+foreach($test=~/$http_URL_regex/g) {
+	print STDERR "URL:$_\n";
+}
+
+print "\n";
+
+foreach($test=~/$http_URL_regex_punyonly/g) {
+	print STDERR "PUNY:$_\n";
+}
+
+print '$::isurl=q{(' . $::http_URL_regex . ")};\n";
+print '$::isurl_puny=q{(' . $::http_URL_regex_punyonly . ")};\n";
+
+######################################################################
+# インラインプラグイン
+######################################################################
+$amp='&amp;';
+#$amp='&';
+$space='\s?';
+$cmdname='[^(;{]+';
+$openinline="$space\\($space";
+$inlines="[^)]*?";
+$noinline="(?:[()$space]*?)";
+$closeinline="$space\\)";
+$openopt="$space\\{$space";
+$opts='[^&}]*?';
+$closeopt="$space\\}";
+$endinline=';';
+
+$opt=qq(($cmdname)$noinline$openopt($opts)$closeopt);
+$cmdonly=qq(($cmdname));
+$parm=qq(($cmdname)$openinline($inlines)$closeinline);
+$parmopt=qq(($cmdname)$openinline($inlines)$closeinline$openopt($opts)$closeopt);
+$::embedded_inline=qq($amp(?:$opt|$cmdonly|$parm|$parmopt)$endinline);
+
+######################################################################
+
+$test=<<EOM;
+&abc;
+&afg;
+&def(a);
+&def (a) {abc(abz);};
+&def (a) {&abc(abz);};
+&new{2006-02-02 (Thu) 03:37:35};
+EOM
+
+foreach(split(/\n/,$test)) {
+	$test=~/$::embedded_inline/g;
+#	print STDERR "[1:$1] [2:$2] [3:$3] [4:$4] [5:$5] [6:$6] [7:$7] [8:$8]\n";
+}
+
+print '$::embedded_inline=\'' . $::embedded_inline . "';\n";
+
+######################################################################
+# メールアドレスの抽出
+######################################################################
+
+$esc         = '\\\\';               $Period      = '\.';
+$space       = '\040';
+$OpenBR      = '\[';                 $CloseBR     = '\]';
+$NonASCII    = '\x80-\xff';          $ctrl        = '\000-\037';
+$CRlist      = '\n\015';
+$qtext       = qq/[^$esc$NonASCII$CRlist\"]/;
+$dtext       = qq/[^$esc$NonASCII$CRlist$OpenBR$CloseBR]/;
+$quoted_pair = qq<${esc}[^$NonASCII]>;
+$apos        = qq(');
+#$atom_char   = qq/[^($space)<>\@,;:\".$esc$OpenBR$CloseBR$ctrl$NonASCII]/;
+$atom_char   = qq/[^($space)<>\@,;:\&#".$esc$OpenBR$CloseBR$ctrl$NonASCII]/;
+$atom_char2  = qq/[^($space)<>\@,;:\&#"$apos.$esc$OpenBR$CloseBR$ctrl$NonASCII]/;
+#$atom        = qq<$atom_char+(?!$atom_char)>;
+$atom        = qq<$atom_char2(?:$atom_char)*(?!$atom_char)>;
+$atom2       = qq<$atom_char2+(?!$atom_char2)>;
+#$quoted_str  = qq<\"$qtext*(?:$quoted_pair$qtext*)*\">;
+$quoted_str  = qq<["']$qtext*(?:$quoted_pair$qtext*)*["']>;
+$word        = qq<(?:$atom|$quoted_str)>;
+#$domain_ref  = $atom;
+$domain_ref  = $atom2;
+$domain_lit  = qq<$OpenBR(?:$dtext|$quoted_pair)*$CloseBR>;
+$sub_domain  = qq<(?:$domain_ref|$domain_lit)>;
+#$domain      = qq<$sub_domain(?:$Period$sub_domain)*>;
+$domain      = qq<$sub_domain(?:$Period$sub_domain)>;
+												#  ↑イントラのドメインなしを自動判別する
+#$local_part  = qq<$word(?:$Period$word)*>;
+$local_part  = qq<$word(?:$Period$word)*$Period?>;
+										#↑dot付を許す
+$addr_spec   = qq<$local_part\@$domain>;
+$mail_regex  = $addr_spec;
+
+######################################################################
+print '$::ismail=q(' . $::mail_regex . ");\n";
+if(0) {
+	$test="example\@test";
+	print STDERR $test=~/$::mail_regex/g;
+	print "\n";
+	$test="example.\@test.com";
+	print STDERR $test=~/$::mail_regex/g;
+	print "\n";
+	$test="'examp'le.\@test.com'";
+	print STDERR $test=~/$::mail_regex/g;
+	print "\n";
+	$test="\@test.com";
+	print STDERR $test=~/$::mail_regex/g;
+	print "\n";
+	$test="お問い合わせはa\@test.com&subject=sendまで";
+	print STDERR $test=~/$::mail_regex/g;
+	print "\n";
+}
+
+######################################################################
+# 顔文字
+######################################################################
+%::_facemark = (
+	' :)'		=> 'smile',
+	' (^^)'		=> 'smile',
+	' :D'		=> 'bigsmile',
+	' (^-^)'	=> 'bigsmile',
+	' :p'		=> 'huh',
+	' :d'		=> 'huh',
+	' XD'		=> 'oh',
+	' X('		=> 'oh',
+	' ;)'		=> 'oh',
+	' (;'		=> 'wink',
+	' (^_-)'	=> 'wink',
+	' ;('		=> 'sad',
+	' :('		=> 'sad',
+	' (--;)'	=> 'sad',
+	' (^^;)'	=> 'worried',
+	'&heart;'	=> 'heart',
+);
+%::_facemark_puki = (
+	'&bigsmile;'=> 'bigsmile',
+	'&huh;'		=> 'huh',
+	'&oh;'		=> 'oh',
+	'&sad;'		=> 'sad',
+	'&smile;'	=> 'smile',
+	'&wink;'	=> 'wink',
+	'&worried;' => 'worried',
+);
+
+$::_facemark=join('|',sort keys %::_facemark);
+$::_facemark=~s/([&;^;:() ])/\\$1/g;
+$::_facemark="($::_facemark)";
+$::_facemark_puki=join('|',sort keys %::_facemark_puki);
+$::_facemark_puki=~s/([&;^;:() ])/\\$1/g;
+$::_facemark_puki="($::_facemark_puki)";
+
+print '$::_facemark=q{' . $::_facemark . "};\n";
+print '$::_facemark.=q{' . $::_facemark_puki . "} if(\$::usePukiWikiStyle eq 1);\n";
+
+######################################################################
+# インライン
+######################################################################
+%::_inline = (
+#	q(''')		=> 'em',
+#	q('')		=> 'strong',
+	q('''?)		=> 'em&strong',
+#	q(%%%)		=> 'ins',
+#	q(%%)		=> 'del',
+	q(%%%?)		=> 'ins&del',
+	q(^^)		=> 'sup',
+	q(__)		=> 'sub',
+);
+
+$::_inline=join('|',reverse sort(keys %::_inline));
+$::_inline=~s/([&;^;:() ])/\\$1/g;
+$::_inline="($::_inline)(.+?)(?:$::_inline)";
+
+print '$::_inline=q{' . $::_inline . "};\n";

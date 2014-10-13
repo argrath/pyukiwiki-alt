@@ -1,0 +1,77 @@
+#$Id: showrss.inc.pl.ja.pod,v 1.51 2006/09/29 09:11:32 papu Exp $
+
+__END__
+=encoding euc-jp
+
+=head1 NAME
+
+showrss.inc.pl - PyukiWiki プラグイン
+
+=head1 概要
+
+ #showrss(rdfへのURI,[recent|body|menubar],時間）
+
+=head1 説明
+
+rdfを読込んで表示します。
+
+時間は1時間単位でキャッシュの有効時間を指定します。0を指定するとキャッシュを使用しません。
+
+指定しない場合は、デフォルトの1時間となります。
+
+cache ディレクトリを作成する必要があります。Jcode.pm または Unicode::Japanese の使用が必須となります。
+
+=head1 USING
+
+=over 4
+
+=item [recent|body|menubar]
+
+表示する書式を 'recent', 'body' or 'menubar' または未指定から選択します。
+
+=item time
+
+更新周期を指定します。
+
+=back
+
+=head1 参考
+
+=over 4
+
+=item PyukiWiki/Plugin/Standard/showrss
+
+L<http://pyukiwiki.sourceforge.jp/PyukiWiki/Plugin/Standard/showrss/>
+
+=item PyukiWiki CVS
+
+L<http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/pyukiwiki/PyukiWiki-Devel/plugin/showrss.inc.pl>
+
+=back
+
+=head1 著者
+
+=over 4
+
+=item Nekyo
+
+L<http://nekyo.hp.infoseek.co.jp/>
+
+=item PyukiWiki Developers Team
+
+L<http://pyukiwiki.sourceforge.jp/>
+
+=back
+
+=head1 ライセンス
+
+Copyright (C) 2004-2006 by Nekyo.
+
+Copyright (C) 2005-2006 by PyukiWiki Developers Team
+
+License is GNU GENERAL PUBLIC LICENSE 2 and/or Artistic 1 or each later version.
+
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=cut
