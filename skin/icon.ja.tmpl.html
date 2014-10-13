@@ -1,0 +1,6 @@
+<div id="foot">
+<hr class="full_hr" />
+<div id="toolbar"><TMPL_IF name="toolbar">
+<TMPL_LOOP name="loop"><TMPL_IF name="name"><a title="$::title" href="$::url"><img alt="$::title" src="$::image_url/$::name.png" height="$::height" width="$::width" /></a>
+<TMPL_ELSE> &nbsp; </TMPL_IF></TMPL_LOOP></TMPL_IF>
+</div>

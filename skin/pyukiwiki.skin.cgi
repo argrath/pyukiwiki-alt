@@ -19,6 +19,8 @@
 # Skin.en:PyukiWiki Default
 ######################################################################
 
+use HTML::Template;
+
 sub skin {
 	my ($pagename, $body, $is_page, $bodyclass, $editable, $admineditable, $basehref, $lastmod) = @_;
 
@@ -197,60 +199,56 @@ EOD
 	# アイコン、lastmodified表示
 	$htmlbody.= <<"EOD";
 </div>
-<div id="foot">
-<hr class="full_hr" />
-<div id="toolbar">
 EOD
+	my $t = HTML::Template->new(scalarref => &decodetmpl('skin/icon.ja.tmpl.html'));
+	$t->param(toolbar => $::toolbar);
 	if($::toolbar ne 0) {
+		my (@loop) = ();
 		foreach $name (@::navi) {
 			if($name eq '') {
-				$htmlbody.=" &nbsp; ";
+				my %x = (name => '');
+				push @loop, \%x;
 			} else {
 				if(-f "$image_dir/$name.png") {
 					if($::toolbar eq 2 || $::navi{"$name\_height"} ne '') {
-						my $height=$::navi{"$name\_height"} eq '' ? 20 : $::navi{"$name\_height"};
-						my $width=$::navi{"$name\_width"} eq '' ? 20 : $::navi{"$name\_width"};
-						$htmlbody.=<<EOD;
-	<a title="@{[$::navi{"$name\_title"} eq '' ? $::navi{"$name\_name"} : $::navi{"$name\_title"}]}" href="$::navi{"$name\_url"}"><img alt="@{[$::navi{"$name\_title"} eq '' ? $::navi{"$name\_name"} : $::navi{"$name\_title"}]}" src="$image_url/$name.png" height="$height" width="$width" /></a>
-EOD
+						my $height=$::navi{$name . '_height'};
+						if($height eq '') {$height = 20;}
+						my $width=$::navi{$name . '_width'};
+						if($width eq '') {$width =  20;}
+						my $title = $::navi{$name . '_title'};
+						if($title eq '') {$title = $::navi{$name . '_name'};}
+						my %x = (
+							title => $title,
+							height => $height,
+							width => $width,
+							url => $::navi{$name . '_url'},
+							image_url => $image_url,
+							name => $name);
+						push @loop, \%x;
 					}
 				}
 			}
 		}
+		$t->param(loop => \@loop);
 	}
+	$htmlbody .= $t->output;
 	$htmlbody.=<<EOD;
-</div>
 @{[ $::last_modified == 2
  ? qq(<div id="lastmodified">$::lastmod_prompt $lastmod</div>)
  : qq()
 ]}
 <div id="footer">
 EOD
+	# footer
+	$t = HTML::Template->new(scalarref => &decodetmpl('skin/footer.ja.tmpl.html'));
+	$t->param(wiki_title => $::wiki_title,
+			  basehref => $basehref,
+			  modifier => $::modifier,
+			  modifierlink => $::modifierlink,
+			  version => $::version,
+			  );
+	$footerbody = $t->output;
 
-	# ページフッタ wiki文法
-	# lang=ja
-	if($::lang eq 'ja') {
-		$footerbody=<<EOD;
-@{[$::wiki_title ne '' ? qq(''[[$::wiki_title>$basehref]]'' ) : '']}Modified by [[$::modifier>$::modifierlink]]~
-~
-''[[PyukiWiki $::version>http://pyukiwiki.sourceforge.jp/]]''
-Copyright&copy; 2004-2006 by [[Nekyo>http://nekyo.hp.infoseek.co.jp/]], [[PyukiWiki Developers Team>http://pyukiwiki.sourceforge.jp/]]
-License is [[GPL>http://www.opensource.jp/gpl/gpl.ja.html]], [[Artistic>http://www.opensource.jp/artistic/ja/Artistic-ja.html]]~
-Based on "[[YukiWiki>http://www.hyuki.com/yukiwiki/]]" 2.1.0 by [[yuki>http://www.hyuki.com/]]
-and [[PukiWiki>http://pukiwiki.sourceforge.jp/]] by [[PukiWiki Developers Term>http://pukiwiki.sourceforge.jp/]]~
-EOD
-	} else {
-	# lang=en and/or other
-		$footerbody=<<EOD;
-@{[$::wiki_title ne '' ? qq(''[[$::wiki_title>$basehref]]'' ) : '']}Modified by [[$::modifier>$::modifierlink]]~
-~
-''[[PyukiWiki $::version>http://pyukiwiki.sourceforge.jp/en/]]''
-Copyright&copy; 2004-2006 by [[Nekyo>http://nekyo.hp.infoseek.co.jp/]], [[PyukiWiki Developers Team>http://pyukiwiki.sourceforge.jp/en/]]
-License is [[GPL>http://www.gnu.org/licenses/gpl.html]], [[Artistic>http://www.perl.com/language/misc/Artistic.html]]~
-Based on "[[YukiWiki>http://www.hyuki.com/yukiwiki/]]" 2.1.0 by [[yuki>http://www.hyuki.com/]]
-and [[PukiWiki>http://pukiwiki.sourceforge.jp/]] by [[PukiWiki Developers Term>http://pukiwiki.sourceforge.jp/]]~
-EOD
-	}
 	$footerbody= &text_to_html($footerbody);
 	$footerbody=~s/(<p>|<\/p>)//g;
 	$htmlbody.= $footerbody;
@@ -264,6 +262,18 @@ EOD
 </html>
 EOD
 	return $htmlbody;
+}
+
+sub decodetmpl
+{
+	open F, '<' . $_[0];
+	my $s = '';
+	while(<F>){
+		s@\$::([a-z_]+)@<TMPL_VAR name="$1">@g;
+		$s .= $_;
+	}
+	close F;
+	return \$s;
 }
 
 1;
