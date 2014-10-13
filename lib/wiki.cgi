@@ -39,8 +39,9 @@ $::use_autoimg = 1;	# automatically convert image URL into <img> tag.
 $::use_exists = 0;	# If you can use 'exists' method for your DB.
 
 ##############################
-$::package = 'PyukiWiki';
-$::version = '0.1.7-rc3';
+$::package = 'PyukiWiki-Alt';
+$::version = '0.20071111';
+#$::version = '0.1.7-rc3-0.1';
 
 	# 2005.12.19 pochi: mod_perlで実行可能に
 	# グローバル関数の定義
