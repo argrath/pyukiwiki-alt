@@ -96,7 +96,7 @@ sub plugin_backup_nowdiff {
 
 
 sub plugin_backup_action {
-	require 'PyukiWiki/Backup.pm';
+	require 'PyukiWikiAlt/Backup.pm';
 	if(!defined $::form{age}){
 		return &plugin_backup_list();
 	}
